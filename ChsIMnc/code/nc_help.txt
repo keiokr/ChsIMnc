@@ -1,0 +1,59 @@
+Windows nc 参数说明
+===================
+
+连接模式
+--------
+
+nc.exe [-n] [-v] [-w seconds] [-p local_port] [-c command] <host> <port>
+
+示例：
+
+nc.exe -n -w 3 127.0.0.1 1337
+nc.exe -v -n -w 3 127.0.0.1 1337
+nc.exe -v -n -w 3 -p 4444 127.0.0.1 1337
+nc.exe -v -n -w 3 -c "cmd.exe /Q" 127.0.0.1 1337
+nc.exe -v -n -w 3 -c "powershell.exe -NoLogo -NoProfile" 127.0.0.1 1337
+
+监听模式
+--------
+
+nc.exe -l [-v] [-w seconds] [-c command] -p <port>
+nc.exe -l [-v] [-w seconds] [-c command] <port>
+
+示例：
+
+nc.exe -l -p 1337
+nc.exe -l 1337
+nc.exe -l -v -p 1337
+nc.exe -l -v -w 10 -p 1337
+nc.exe -l -v -p 1337 -c "cmd.exe /Q"
+nc.exe -l -v -p 1337 -c "powershell.exe -NoLogo -NoProfile"
+
+参数
+----
+
+-n
+    只使用数字 IPv4 地址，不解析 DNS / 主机名。
+
+-w seconds
+    超时时间，单位秒。
+    连接模式下表示 connect 超时。
+    监听模式下表示 accept 超时。
+
+-l
+    监听模式。
+
+-p port
+    监听模式下表示监听端口。
+    连接模式下表示本地源端口。
+
+-v
+    输出简要过程信息。
+
+-c command
+    连接建立后执行指定命令。
+    不指定时默认执行 cmd.exe /Q。
+
+-h / --help
+    程序运行时不输出帮助信息；帮助内容查看本文件。
+
